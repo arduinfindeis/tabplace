@@ -21,6 +21,21 @@
         <!--[if gt IE 8]><!-->
             <link rel="stylesheet" href="css/layouts/marketing.css">
         <!--<![endif]-->
+
+    <script type="text/javascript">
+            var thedate   = new Date();
+            var dayofweek = thedate.getDay();
+            var hourofday = thedate.getHours();
+            function onAir()
+            {
+            // return TRUE if it's Mon through Sat, 3a-6a UTC
+            if (dayofweek != 0 &&
+            ((hourofday > 9 && hourofday < 17))) {
+            return true;
+            }
+            return false;
+            }
+        </script>
 </head>
 <body>
 
@@ -37,7 +52,15 @@
 
 <div class="splash-container">
     <div class="splash">
-        <h1 class="splash-head">You're at work</h1>
+        <h1 class="splash-head">
+        <script type="text/javascript">
+            if (onAir()) {
+            document.write("You're at work!");
+            } else {
+            document.write("Leisure time!");
+            }
+        </script>
+        </h1>
         <p class="splash-subhead">
         </p>
         <p>
