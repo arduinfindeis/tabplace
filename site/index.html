@@ -26,7 +26,7 @@
             var thedate   = new Date();
             var dayofweek = thedate.getDay();
             var hourofday = thedate.getHours();
-            function onAir()
+            function atWork()
             {
             // return TRUE if it's Mon through Sat, 3a-6a UTC
             if (dayofweek != 0 &&
@@ -44,7 +44,6 @@
         <a class="pure-menu-heading" href="">tina</a>
 
         <ul class="pure-menu-list">
-            <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">Home</a></li>
             <li class="pure-menu-item"><a href="#" class="pure-menu-link">Settings</a></li>
         </ul>
     </div>
@@ -54,7 +53,7 @@
     <div class="splash">
         <h1 class="splash-head">
         <script type="text/javascript">
-            if (onAir()) {
+            if (atWork()) {
             document.write("You're at work!");
             } else {
             document.write("Leisure time!");
@@ -63,9 +62,9 @@
         </h1>
         <p class="splash-subhead">
         </p>
-        <p>
+        <!-- <p>
             <a href="" class="pure-button pure-button-primary">Search</a>
-        </p>
+        </p> -->
     </div>
 </div>
 
