@@ -1,11 +1,8 @@
-/* html
-
-
-*/
 function sun() {
     var t = new Date();
     now = t.getTime();
     now_hm = [t.getHours(), t.getMinutes()];
+    
 
     console.log(t, now, now_hm);
     const width = window.innerWidth;
@@ -37,8 +34,8 @@ function sun() {
     };
 
 
-    sun_up = [6,0];
-    sun_down = [18,0];
+    sun_up = [18,0];
+    sun_down = [22,0];
 
 
     console.log(width, height);
