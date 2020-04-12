@@ -63,8 +63,8 @@ function getTimeDifference(date1, date2) {
 }
 
 window.addEventListener('load', function () {
-    key = "placechange"
-    timePeriodsArr = loadJSON(key)
+    key = "placechange";
+    timePeriodsArr = loadPeriods(key);
     // timePeriodsArr = createData();
     main()
   })

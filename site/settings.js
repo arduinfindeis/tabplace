@@ -74,6 +74,7 @@ function createData(){
 window.addEventListener('load', function () {
     key = "placechange"
     // timePeriodsArr = createData();
-    timePeriodsArr = loadJSON(key)
+    timePeriodsArr = loadPeriods(key);
+
     createForm(timePeriodsArr);
   });
