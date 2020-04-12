@@ -18,6 +18,7 @@ body {
     background-position: center center;
     background-attachment: fixed;
     background-size: cover;
+    background-blend-mode: lighten;
 }
 
 h1,
@@ -170,7 +171,7 @@ a.pure-button-primary {
     font-weight: 100;
     border-radius: 10px;
     line-height: 1em;
-    backdrop-filter: blur(10px) brightness(80%);
+    backdrop-filter: blur(5px) brightness(50%);
 }
 
 /* This is the subheading that appears on the blue section */
