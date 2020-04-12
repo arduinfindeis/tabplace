@@ -6,8 +6,19 @@ function main() {
 
     function getCurrentPeriod(timePeriodsArr, currTime){
         for (const period of timePeriodsArr){
-            if (currTime > period.start && currTime < period.end){
-                return period;
+            console.log(period)
+            let start = hmtoDate(period.start);
+            let end = hmtoDate(period.end);
+            console.log(period);
+            console.log(start);
+            console.log(end);
+            
+            if (currTime > start && currTime < end){
+                let new_period = period;
+                new_period.start = start;
+                new_period.end = end;
+                console.log(new_period)
+                return new_period;
             }
         }
     }
@@ -31,7 +42,16 @@ function main() {
     }
 }
 
-function createData(){
+function hmtoDate(time) {
+    console.log(time);
+    let clock = new Date();
+    clock.setHours(+time[0]);
+    clock.setMinutes(+time[1]);
+    console.log(clock);
+    return clock;
+}
+
+/* function createData(){
     let timePeriodsArr = []
 
     let workStart = new Date()
@@ -45,7 +65,7 @@ function createData(){
     timePeriodsArr.push(workPeriod);
 
     return timePeriodsArr;
-}
+} */
 
 function getTimeDifference(date1, date2) {
 
@@ -64,7 +84,8 @@ function getTimeDifference(date1, date2) {
 
 window.addEventListener('load', function () {
     key = "placechange";
-    timePeriodsArr = loadPeriods(key);
+    timePeriodsArr = loadJSON(key);
+    console.log(timePeriodsArr)
     // timePeriodsArr = createData();
     main()
   })

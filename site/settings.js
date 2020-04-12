@@ -6,11 +6,11 @@ function createForm(timePeriodsArr){
     <legend>Work times</legend>`;
     const zeroPad = (num, places) => String(num).padStart(places, '0')
     for (timePeriod of timePeriodsArr){
-        console.log(timePeriod.start.getHours())
+        console.log(timePeriod.start)
         periodForm = `
             <div class="pure-u-1-5"><input type="text" placeholder="Name" id="name" value=${timePeriod.name}></div>
-            <div class="pure-u-1-5"><input type="text" placeholder="Start" value="${zeroPad(timePeriod.start.getHours(),2)}${zeroPad(timePeriod.start.getMinutes(),2)}"></div>
-            <div class="pure-u-1-5"><input type="text" placeholder="End (hhmm)" value="${zeroPad(timePeriod.end.getHours(),2)}${zeroPad(timePeriod.end.getMinutes(),2)}"></div>
+            <div class="pure-u-1-5"><input type="text" placeholder="Start" value="${zeroPad(timePeriod.start[0],2)}${zeroPad(timePeriod.start[1],2)}"></div>
+            <div class="pure-u-1-5"><input type="text" placeholder="End (hhmm)" value="${zeroPad(timePeriod.end[0],2)}${zeroPad(timePeriod.end[1],2)}"></div>
             <div class="pure-u-1-5">
                 <button type="remove" class="pure-button">Remove</button>
             </div>`;
@@ -36,15 +36,13 @@ function saveForm(){
         let start = form.elements[rowNum + 2].value;
         let end = form.elements[rowNum+ 3].value;
 
-        let startDate = new Date();
-        startDate.setHours(start.substr(0,2));
-        startDate.setMinutes(start.substr(2,2));
+        // timeformat: [h,m]
+        let startDate = [start.substr(0,2),start.substr(2,2)];
 
         console.log(startDate)
 
-        let endDate = new Date();
-        endDate.setHours(end.substr(0,2));
-        endDate.setMinutes(end.substr(2,2));
+        let endDate = [end.substr(0,2),end.substr(2,2)];
+
     
         let period = {name:name, start: startDate, end: endDate}
         timePeriodsArrTmp.push(period);
@@ -57,16 +55,8 @@ function saveForm(){
 function createData(){
     let timePeriodsArr = []
 
-    let workStart = new Date()
-    workStart.setHours(9);
-    workStart.setMinutes(0);
-    let workEnd = new Date()
-    workEnd.setHours(17);
-    workEnd.setMinutes(0);
-
-    let workPeriod = {name:"leisure", start: workStart, end: workEnd}
-    timePeriodsArr.push(workPeriod);
-    //timePeriodsArr.push(workPeriod);
+    timePeriodsArr.push({name:"work", start: [9,0], end: [17,0]})
+    timePeriodsArr.push({name:"leisure", start: [17,0], end: [23,30]})
 
     return timePeriodsArr;
 }
@@ -74,8 +64,8 @@ function createData(){
 window.addEventListener('load', function () {
     key = "placechange"
     // timePeriodsArr = createData();
-    timePeriodsArr = loadPeriods(key);
-    if (timePeriodsArr == undefined) {
+    timePeriodsArr = loadJSON(key);
+    if (timePeriodsArr == null) {
         timePeriodsArr = createData();
     }
     createForm(timePeriodsArr);
