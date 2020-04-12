@@ -2,12 +2,7 @@ function main() {
 
     timePeriodsArr = createData();
 
-    // Getting current time
     let currTime   = new Date();
-    // let dayofweek = thedate.getDay();
-    // let hour = thedate.getHours();
-    // let mins = thedate.getMinutes();
-    // let hourmin = hour * 100 + mins
 
     console.log(timePeriodsArr)
 
@@ -25,14 +20,15 @@ function main() {
     let timeText = document.getElementById("time");
 
     timeText.innerHTML = String()
+    const [hh, mm, ss] = getTimeDifference(currTime, period.end)
 
-    if (period.name === "Work") {
+    if (period.name === "work") {
         locationText.innerHTML = ("You're at work!");
-        const [hh, mm, ss] = getTimeDifference(currTime, period.end)
-        timeText.innerHTML = `${period.name}: ${hh}h ${mm} mins remaining`;
+        timeText.innerHTML = `Currently at ${period.name}: ${hh}h ${mm}mins remaining`;
         document.body.style.backgroundImage = "url('./art/people_in_office.svg')";
     } else if (period.name === "leisure") {
         locationText.innerHTML = ("Leisure time!");
+        timeText.innerHTML = `Currently off work: ${hh}h ${mm}mins remaining`;
         document.body.style.backgroundImage = "url('./art/man_couch_relax.svg')";
     }
 }
@@ -47,7 +43,7 @@ function createData(){
     workEnd.setHours(17);
     workEnd.setMinutes(0);
 
-    let workPeriod = {name:"Work", start: workStart, end: workEnd}
+    let workPeriod = {name:"leisure", start: workStart, end: workEnd}
     timePeriodsArr.push(workPeriod);
 
     return timePeriodsArr;
