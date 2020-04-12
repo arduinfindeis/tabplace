@@ -15,6 +15,7 @@ body {
     background-color: grey;
     /* background-image: url('../../art/people_in_office.svg'); */
     background-repeat: no-repeat;
+    background-position: center center;
     background-attachment: fixed;
     background-size: cover;
 }
