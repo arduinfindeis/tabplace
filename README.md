@@ -12,4 +12,4 @@ The current prototype can be easily installed. First, clone the repository:
 git clone https://github.com/arduinfindeis/tabplace.git
 ```
 
-Next install the [New Tab Redirect](https://chrome.google.com/webstore/detail/new-tab-redirect/) extension for your chrome browser and set the `index.html` file at the new tab redirect URL in the extension settings. Done, ready to go!
+Next install the [New Tab Redirect](https://chrome.google.com/webstore/detail/new-tab-redirect/) extension for your chrome browser and set the `index.html` file as the new tab redirect URL in the extension settings. Done, ready to go!
