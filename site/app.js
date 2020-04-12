@@ -1,7 +1,5 @@
 function main() {
 
-    timePeriodsArr = createData();
-
     let currTime   = new Date();
 
     console.log(timePeriodsArr)
@@ -65,6 +63,9 @@ function getTimeDifference(date1, date2) {
 }
 
 window.addEventListener('load', function () {
+    key = "placechange"
+    timePeriodsArr = loadJSON(key)
+    // timePeriodsArr = createData();
     main()
   })
 

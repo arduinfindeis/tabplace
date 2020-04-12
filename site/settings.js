@@ -25,13 +25,16 @@ function createForm(timePeriodsArr){
 
 function saveForm(){
     let timePeriodsArrTmp = []
-    let formElements = document.forms;
-    console.log(formElements)
+    let form = document.forms[0];
 
-    for (const form of formElements) {
-        let name = form.elements[1].value;
-        let start = form.elements[2].value;
-        let end = form.elements[3].value;
+    let stepNum = Math.floor(form.length/ 4);
+    console.log(stepNum)
+
+    for (let step = 0; step < stepNum; step++) {
+        rowNum = step * 4
+        let name = form.elements[rowNum+ 1].value;
+        let start = form.elements[rowNum + 2].value;
+        let end = form.elements[rowNum+ 3].value;
 
         let startDate = new Date();
         startDate.setHours(start.substr(0,2));
@@ -43,10 +46,10 @@ function saveForm(){
         endDate.setHours(end.substr(0,2));
         endDate.setMinutes(end.substr(2,2));
     
-        let period = {name:"leisure", start: startDate, end: endDate}
+        let period = {name:name, start: startDate, end: endDate}
         timePeriodsArrTmp.push(period);
     }
-    console.log("Form elements", formElements)
+    
     saveJSON(key, timePeriodsArrTmp)
     return timePeriodsArrTmp;
 }
@@ -70,6 +73,7 @@ function createData(){
 
 window.addEventListener('load', function () {
     key = "placechange"
-    timePeriodsArr = createData();
+    // timePeriodsArr = createData();
+    timePeriodsArr = loadJSON(key)
     createForm(timePeriodsArr);
-  })
+  });
