@@ -12,10 +12,7 @@ function main() {
     }
 
     var locationText = document.getElementById("location"); 
-    var timeText = document.getElementById("time"); 
-    var mainBody = document.getElementById("main"); 
-
-    console.log(mainBody)
+    var timeText = document.getElementById("time");
 
     timeText.innerHTML = String()
 
