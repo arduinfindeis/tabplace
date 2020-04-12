@@ -16,6 +16,9 @@ function loadJSON(key) {
 
 function loadPeriods(key) {
     let tmp_array = loadJSON(key);
+    if (tmp_array == undefined) {
+        return undefined;
+    }
     for (line of tmp_array) {
         let start = line.start;
         let end = line.end;
@@ -27,3 +30,4 @@ function loadPeriods(key) {
     console.log(tmp_array);
     return tmp_array;
 }
+

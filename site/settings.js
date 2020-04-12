@@ -66,7 +66,7 @@ function createData(){
 
     let workPeriod = {name:"leisure", start: workStart, end: workEnd}
     timePeriodsArr.push(workPeriod);
-    timePeriodsArr.push(workPeriod);
+    //timePeriodsArr.push(workPeriod);
 
     return timePeriodsArr;
 }
@@ -75,6 +75,8 @@ window.addEventListener('load', function () {
     key = "placechange"
     // timePeriodsArr = createData();
     timePeriodsArr = loadPeriods(key);
-
+    if (timePeriodsArr == undefined) {
+        timePeriodsArr = createData();
+    }
     createForm(timePeriodsArr);
   });
