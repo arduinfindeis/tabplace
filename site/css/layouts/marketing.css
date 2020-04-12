@@ -13,8 +13,9 @@ body {
     color: #7f8c8d;
     font-size: 13px;
     background-color: grey;
-    background-image: url('../../art/people_in_office.svg');
+    /* background-image: url('../../art/people_in_office.svg'); */
     background-repeat: no-repeat;
+    background-position: center center;
     background-attachment: fixed;
     background-size: cover;
 }
